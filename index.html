@@ -7,29 +7,14 @@
 			background-color: black;
 			color: red;
 			display: flex;
-			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			height: 100vh;
-			margin: 0;
-			padding: 0;
-		}
-		header {
-			background-color: red;
-			color: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 50px;
-			position: fixed;
-			top: 0;
 		}
 		form {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			margin-top: 70px;
 		}
 		label {
 			display: block;
@@ -64,25 +49,13 @@
 		* {
 			box-sizing: border-box;
 		}
-		footer {
-			background-color: red;
-			color: white;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			padding: 20px;
-			margin-top: auto;
-		}
 	</style>
 </head>
 <body>
 
-	<header>
-		<h1>Busca Avançada no YouTube</h1>
-	</header>
+	<h1>Busca Avançada no YouTube</h1>
 
-	<form action="www.youtube.com/results" method="get">
+	<form action="www.youtube.com/results" method="get" target="_blank">
 		<label for="search_query">Termo de Busca:</label>
 		<input type="text" name="search_query" id="search_query">
 
@@ -131,10 +104,6 @@
 
 		<input type="submit" value="Buscar">
 	</form>
-
-	<footer>
-		<p>Criado por Aleksandro Alves Da Rocha Junior</p>
-	</footer>
 
 </body>
 </html>
