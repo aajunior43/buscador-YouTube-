@@ -2,67 +2,93 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Busca Avançada no YouTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Avançada no YouTube Ultra V2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Source+Code+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #1c1c1c;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-        }
-        form {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e, #41295a);
+            font-family: 'Roboto Mono', monospace;
+            color: #00ffcc;
+            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-radius: 10px;
-            background-color: #2d2d2d;
-            padding: 30px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #222831;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+            width: 90%;
+            max-width: 500px;
         }
         label {
             display: block;
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 18px;
+            text-align: left;
+            width: 100%;
         }
         input[type="text"], select {
             padding: 10px;
-            font-size: 18px;
-            background-color: #3d3d3d;
-            color: white;
-            border: 2px solid #555;
+            font-size: 16px;
+            background-color: #393e46;
+            color: #00ffcc;
+            border: 2px solid #00adb5;
             border-radius: 5px;
-            margin-bottom: 10px;
-            width: 300px;
+            margin-top: 5px;
+            width: 100%;
         }
         input[type="submit"] {
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 20px;
-            background-color: red;
-            color: white;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #00adb5;
+            color: #393e46;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
             width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #00ffcc;
+            color: #222831;
         }
         h1 {
-            font-size: 40px;
-            margin-bottom: 30px;
-            text-align: center;
+            margin-bottom: 20px;
+            color: #00adb5;
+            font-family: 'Source Code Pro', monospace;
         }
-        /* Estilização adicional para uma melhor aparência */
+        .tip {
+            margin-top: 20px;
+            color: #00adb5;
+            font-size: 14px;
+            font-family: 'Source Code Pro', monospace;
+        }
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #393e46;
+            color: #00ffcc;
+            padding: 10px 0;
+            font-size: 18px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
-
-    <h1>Busca Avançada no YouTube</h1>
-
+    <header>Busca Avançada no YouTube</header>
     <form action="https://www.youtube.com/results" method="get" target="_blank">
+        <h1>Refine Sua Busca</h1>
         <label for="search_query">Termo de Busca:</label>
-        <input type="text" name="search_query" id="search_query" required> <!-- Campo obrigatório -->
+        <input type="text" name="search_query" id="search_query" required>
 
         <label for="sp">Filtrar por:</label>
         <select name="sp" id="sp">
@@ -74,7 +100,7 @@
         </select>
 
         <label for="date">Data de Publicação:</label>
-        <select name="search_upload_date" id="date"> <!-- Corrigido o nome do atributo -->
+        <select name="search_upload_date" id="date">
             <option value="">Qualquer data</option>
             <option value="day">Hoje</option>
             <option value="week">Esta semana</option>
@@ -83,26 +109,30 @@
         </select>
 
         <label for="duration">Duração:</label>
-        <select name="search
-_duration" id="duration">
-<option value="">Qualquer duração</option>
-<option value="short">Curto (< 4 minutos)</option>
-<option value="medium">Médio (4-20 minutos)</option>
-<option value="long">Longo (> 20 minutos)</option>
-</select>    <label for="sort_by">Ordenar por:</label>
-    <select name="search_sort" id="sort_by">
-        <option value="relevance">Relevância</option>
-        <option value="date">Data de upload</option> <!-- Corrigido o valor da opção -->
-        <option value="view_count">Número de visualizações</option>
-        <option value="rating">Avaliação</option>
-    </select>
+        <select name="search_duration" id="duration">
+            <option value="">Qualquer duração</option>
+            <option value="short">Curto (< 4 minutos)</option>
+            <option value="medium">Médio (4-20 minutos)</option>
+            <option value="long">Longo (> 20 minutos)</option>
+        </select>
 
-    <label for="safe_search">Modo restrito:</label>
-    <select name="search_safe" id="safe_search">
-        <option value="off">Desativado</option>
-        <option value="moderate">Moderado</option>
-        <option value="strict">Restrito</option>
-    </select>
+        <label for="sort_by">Ordenar por:</label>
+        <select name="search_sort" id="sort_by">
+            <option value="relevance">Relevância</option>
+            <option value="date">Data de upload</option>
+            <option value="view_count">Número de visualizações</option>
+            <option value="rating">Avaliação</option>
+        </select>
 
-    <input type="submit" value="Buscar">
-</form>
+        <label for="safe_search">Modo restrito:</label>
+        <select name="search_safe" id="safe_search">
+            <option value="off">Desativado</option>
+            <option value="moderate">Moderado</option>
+            <option value="strict">Restrito</option>
+        </select>
+
+        <input type="submit" value="Buscar">
+    </form>
+    <div class="tip">Use esta ferramenta para explorar conteúdos específicos no YouTube.</div>
+</body>
+</html>
